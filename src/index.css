@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; font-family: "Plus Jakarta Sans", sans-serif; background: #0a0a0c; color: #f5f2ea; }
+html, body, #root { font-family: "Plus Jakarta Sans", sans-serif; }
+
+:root {
+  color-scheme: dark;
+  --jj-bg: #0a0a0c;
+  --jj-surface: #111214;
+  --jj-surface-2: #17181b;
+  --jj-text: #f5f2ea;
+  --jj-text-2: #b8b6b0;
+  --jj-muted: #6b6963;
+  --jj-border: rgba(255,255,255,.09);
+  --jj-accent: #f5d76e;
+}
+
+html:not(.dark) {
+  color-scheme: light;
+  --jj-bg: #f4f2ed;
+  --jj-surface: #fbfaf7;
+  --jj-surface-2: #ffffff;
+  --jj-text: #17181b;
+  --jj-text-2: #5f6064;
+  --jj-muted: #77756f;
+  --jj-border: rgba(23,24,27,.10);
+}
+
+body { background: var(--jj-bg); color: var(--jj-text); transition: background-color .2s ease, color .2s ease; }
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+button { touch-action: manipulation; }
+:focus-visible { outline: 2px solid var(--jj-accent); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Preserve the existing JoblessJob visual language while making the light theme usable. */
+html:not(.dark) .bg-\[\#0A0A0C\] { background-color: var(--jj-bg) !important; }
+html:not(.dark) .bg-\[\#111214\] { background-color: var(--jj-surface) !important; }
+html:not(.dark) .bg-\[\#0B0C0F\] { background-color: var(--jj-surface-2) !important; }
+html:not(.dark) .text-white { color: var(--jj-text) !important; }
+html:not(.dark) .text-\[\#F5F2EA\] { color: var(--jj-text) !important; }
+html:not(.dark) .text-\[\#D8D6D0\] { color: #303136 !important; }
+html:not(.dark) .text-\[\#B8B6B0\] { color: var(--jj-text-2) !important; }
+html:not(.dark) .text-\[\#8B8985\] { color: #666761 !important; }
+html:not(.dark) .text-\[\#6B6963\] { color: var(--jj-muted) !important; }
+html:not(.dark) .text-\[\#5C5A55\] { color: #85837d !important; }
+html:not(.dark) [class*="border-white/"] { border-color: var(--jj-border) !important; }
+html:not(.dark) .placeholder\:text-\[\#5C5A55\]::placeholder { color: #85837d !important; }
+html:not(.dark) .shadow-\[0_20px_60px_rgba\(0\,0\,0\,\.45\)\] { box-shadow: 0 20px 60px rgba(23,24,27,.10) !important; }
